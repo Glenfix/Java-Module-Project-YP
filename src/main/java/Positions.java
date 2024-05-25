@@ -41,7 +41,8 @@ public class Positions {
             } else if (userInput.equals("продолжить")) {
                 repeatAddPositionAndPrice();
             } else {
-                System.out.println("Пожалуйста, выберите ОДНУ из ДОСТУПНЫХ команд (введите Продолжить/Завершить):");
+                System.out.println("Пожалуйста, выберите ОДНУ из ДОСТУПНЫХ команд" +
+                        " (введите Продолжить/Завершить):");
             }
         }
     }
@@ -49,7 +50,8 @@ public class Positions {
     public static void cheque() {
         System.out.println("Добавленные товары:");
         for (Item cheque : positions) {
-            System.out.println("Товар: " + "'" + cheque.name + "' " + "за " + cheque.price + " " + rublesFormat(cheque.price) + ".");
+            System.out.println("Товар: " + "'" + cheque.name + "' " + "за " + cheque.price + " "
+                    + rublesFormat(cheque.price) + ".");
         }
     }
 
@@ -82,13 +84,15 @@ public class Positions {
         addPositionAndPrice();
     }
 
-    public static void addPeople() {
+    public static void addPeople() { // Изменено название функции на глагол
         while (true) {
             try {
                 String input = scanner.nextLine();
-                userInput = Integer.parseInt(input);
+                userInput = Integer.parseInt(input); // Добавил Sting и перевожу его в Integer для
+                //полного устранения утечки.
                 if (userInput == 1) {
-                    System.out.println("Должно быть как минимум 2 человека, для разделения счёта. Пожалуйста, укажите число:");
+                    System.out.println("Должно быть как минимум 2 человека, для разделения" +
+                            " счёта. Пожалуйста, укажите число:");
                 } else if (userInput > 1) {
                     break;
                 } else if (userInput <= 0) {
