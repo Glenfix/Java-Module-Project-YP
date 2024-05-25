@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Здравствуйте, на сколько человек делим счёт? (введите число):");
-        Positions.theQuestion();
+        Positions.addPeople();
         Positions.addPositionAndPrice();
         Positions.continueAddPositions();
         Positions.cheque();

@@ -32,12 +32,12 @@ public class Positions {
         System.out.println("Продолжить добавление товаров? (введите Продолжить/Завершить):");
     }
 
-    public static boolean continueAddPositions() {
+    public static void continueAddPositions() {
         while (true) {
             String userInput = scanner.next().trim().toLowerCase();
 
             if (userInput.equals("завершить")) {
-                return false;
+                return;
             } else if (userInput.equals("продолжить")) {
                 repeatAddPositionAndPrice();
             } else {
@@ -82,16 +82,15 @@ public class Positions {
         addPositionAndPrice();
     }
 
-    public static void theQuestion() {
+    public static void addPeople() {
         while (true) {
             try {
-                userInput = scanner.nextInt();
-
+                String input = scanner.nextLine();
+                userInput = Integer.parseInt(input);
                 if (userInput == 1) {
                     System.out.println("Должно быть как минимум 2 человека, для разделения счёта. Пожалуйста, укажите число:");
                 } else if (userInput > 1) {
                     break;
-
                 } else if (userInput <= 0) {
                     System.out.println("Пожалуйста, укажите число больше нуля:");
                 } else {
@@ -100,6 +99,8 @@ public class Positions {
             } catch (InputMismatchException e) {
                 System.out.println("Ошибка! укажите число:");
                 scanner.next();
+            } catch (NumberFormatException e) {
+                System.out.println("Ошибка! Пожалуйста, укажите корректное число:");
             }
         }
     }
